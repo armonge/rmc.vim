@@ -18,8 +18,10 @@ syntax case match
 syntax keyword rmcIdentifier HM RM LANG
 
 " operators 
-syntax keyword rmcOperator says excludes start with equals includes any
+syntax keyword rmcOperator says excludes equals 
 syntax match rmcOperator "contains" 
+syntax match rmcOperator "starts with" 
+syntax match rmcOperator "includes any" 
 
 " comments
 syntax region rmcComment start="//" end="$" 
