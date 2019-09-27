@@ -11,37 +11,22 @@ elseif exists('b:current_syntax')
 endif
 
 
-" An identifier looks like [prefix:]identifier
-syntax match rmcIdentifier /\<\(\h\k*:\)\?\h\k*\>/
-
 " keywords are case-sensitive
 syntax case match
 
-" statement keywords
+" keywords
+syntax keyword rmcIdentifier HM RM LANG
 
-" other keywords
-syntax keyword rmcKeyword HM RM LANG
-
-" boolean constants (separated from the 'other keywords' for vim syntax purposes)
-
-" operators (separated from the 'other keywords' for vim syntax purposes)
-syntax keyword rmcOperator says excludes start with contains
-syntax keyword rmcOperator equals includes any
-
-" if-feature (separated from 'statement keywords' for vim syntax purposes)
+" operators 
+syntax keyword rmcOperator says excludes start with equals includes any
+syntax match rmcOperator "contains" 
 
 " comments
-syntax region rmcComment start="/\*" end="\*/" contains=@Spell
-syntax region rmcComment start="//" end="$" contains=@Spell
+syntax region rmcComment start="//" end="$" 
 
 " strings
-syntax region yangString start=+"+ skip=+\\"+ end=+"+ contains=@Spell
-syntax region yangString start=+'+ end=+'+ contains=@Spell
-
-" dates
-
-
-" numbers
+syntax region rmcString start=+"+ skip=+\\"+ end=+"+ 
+syntax region rmcString start=+'+ end=+'+ 
 
 
 "-------------------------------------
@@ -49,10 +34,10 @@ syntax region yangString start=+'+ end=+'+ contains=@Spell
 
 " things with one-to-one mapping
 highlight def link rmcOperator Operator
-highlight def link rmcKeyword Special
+highlight def link rmcIdentifier Identifier
 highlight def link rmcComment Comment
-
-" arbitrary mappings
+highlight def link rmcString String
+highlight def link rmcConstant Constant
 
 " synchronize
 
