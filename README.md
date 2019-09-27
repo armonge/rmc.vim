@@ -52,7 +52,8 @@ Then run the following in Vim:
 :NeoBundleInstall
 ```
 
-No plugin manager
+### No plugin manager
+
 Copy rmc.vim's subdirectories into your vim configuration directory:
 
 ```
